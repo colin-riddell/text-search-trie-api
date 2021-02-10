@@ -1,12 +1,8 @@
 package com.example.textsearchservice.services;
 
-import com.example.textsearchservice.Trie;
-import com.example.textsearchservice.TrieNode;
-import com.example.textsearchservice.client.Client;
-import com.example.textsearchservice.models.Term;
-import com.example.textsearchservice.repositories.TermRepository;
+import com.example.textsearchservice.trie.Trie;
+import com.example.textsearchservice.trie.TrieNode;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

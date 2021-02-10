@@ -31,8 +31,8 @@ public class TermService {
      * Given an input prefix term like app return all the
      * associated completions of that prefix.
      *
-     * This service caches into a Trie. If the cache misses
-     * it will hit the DB.
+     * This service uses {TrieService} as a cache.
+     * If the cache misses it will hit the DB.
      * @param input
      * @return
      */

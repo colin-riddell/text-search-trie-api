@@ -1,11 +1,8 @@
 package com.example.textsearchservice.controllers;
 
-import com.example.textsearchservice.TrieNode;
 import com.example.textsearchservice.services.TermService;
-import com.example.textsearchservice.services.TrieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 

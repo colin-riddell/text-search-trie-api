@@ -1,4 +1,4 @@
-package com.example.textsearchservice;
+package com.example.textsearchservice.trie;
 
 
 

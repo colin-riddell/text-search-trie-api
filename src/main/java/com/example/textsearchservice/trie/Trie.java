@@ -1,4 +1,4 @@
-package com.example.textsearchservice;
+package com.example.textsearchservice.trie;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,12 +8,11 @@ public class Trie {
 
     static final int ALPHABET_SIZE = 26;
 
-    /*
-     If not present, inserts key into trie
-     If the key is prefix of trie node,
-     just marks leaf node
+    /**
+     * Strips carriage returns if present
+     * @param in
+     * @return
      */
-
     public static String stripCarriageReturn(String in){
         return Optional.ofNullable(in)
                 .filter(str -> str.length() != 0)
@@ -22,6 +21,14 @@ public class Trie {
                 .orElse(in);
     }
 
+
+    /**
+     * If not present, inserts key into trie
+     * If the key is prefix of trie node, just marks leaf node
+     *
+     * @param root
+     * @param key
+     */
     public static void insert(TrieNode root, String key) {
         key = stripCarriageReturn(key);
         int length = key.length();
@@ -29,8 +36,7 @@ public class Trie {
 
         TrieNode node = root;
 
-        for (int level = 0; level < length; level++)
-        {
+        for (int level = 0; level < length; level++) {
             index = key.charAt(level) - 'a';
             if (node.children[index] == null)
                 node.children[index] = new TrieNode();
@@ -42,7 +48,9 @@ public class Trie {
         node.isEndOfWord = true;
     }
 
-    // Returns true if key presents in trie, else false
+    /**
+     * Returns true if key presents in trie, else false
+     */
     public static boolean search(TrieNode root, String key) {
         int length = key.length();
         int index;
@@ -60,8 +68,14 @@ public class Trie {
         return (node != null && node.isEndOfWord);
     }
 
-    // Returns false if current node has a child
-    // If all children are NULL, return true.
+
+
+    /**
+     *  Returns false if current node has a child
+     *  If all children are NULL, return true.
+     * @param root
+     * @return
+     */
     static boolean isLastNode(TrieNode root) {
         for (int i = 0; i < ALPHABET_SIZE; i++)
             if (root.children[i] != null)
@@ -103,7 +117,6 @@ public class Trie {
     }
 
     public static List<String> getAutoSuggestions(TrieNode root, String query)  {
-
         query = stripCarriageReturn(query);
 
         TrieNode node = root;
