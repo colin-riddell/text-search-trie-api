@@ -43,7 +43,7 @@ public class Trie {
     }
 
     // Returns true if key presents in trie, else false
-    static boolean search(TrieNode root, String key) {
+    public static boolean search(TrieNode root, String key) {
         int length = key.length();
         int index;
         TrieNode node = root;
@@ -145,6 +145,7 @@ public class Trie {
         }
         return found;
     }
+
 
 
 }
