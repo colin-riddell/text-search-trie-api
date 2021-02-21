@@ -41,9 +41,9 @@ public class Client {
         //return out;
         List<Term> terms = new ArrayList<>();
         terms = out.stream()
-            .limit(5000)
+//            .limit(5000)
             .map(s -> new Term(s, new Random().nextInt(1000)))
-            .peek(System.out::println)
+            .peek(p -> System.out.println(p.getTerm()))
             .collect(Collectors.toList());
 
         return terms;
